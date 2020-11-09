@@ -1,0 +1,35 @@
+import unittest
+from gpb_app.api_manager import Parser
+
+
+class TestParser(unittest.TestCase):
+
+    def setUp(self):
+        self.parser = Parser()
+
+    def test_remove_punctuation(self):
+        sentence = "Par(*le mo,i de ce q@ue t&u ve!ux"
+        clean_sentence = self.parser.remove_punctuation(sentence)
+        assert clean_sentence == "parle moi de ce que tu veux"
+
+
+    def test_list_sentence(self):
+        sentence = 'parle moi de ce que tu veux'
+        self.assertEqual(self.parser.list_sentence(sentence), ['quelle', 'est', 'ladresse', 'du',
+                                                           'louvre', 'à', 'paris'])
+
+    def test_parser_return(self):
+        pass
+
+
+class TestWikiApi(unittest.TestCase):
+
+    def test_build_url(self):
+
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
