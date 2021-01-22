@@ -69,8 +69,8 @@ header {
   height: 650px;
   border-width: 1px;
   background-color: lavender;
-  padding-right: unset;
-  padding-left: unset;
+  /*padding-right: unset;*/
+  /*padding-left: 0px;*/
 }
 
 #papy_text {
@@ -97,14 +97,15 @@ header {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 #loading {
   position: fixed;
   z-index: 2;
   display: block;
-  vertical-align: middle;
-  margin-right: auto;
+  left: 50%;
+  top: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */
