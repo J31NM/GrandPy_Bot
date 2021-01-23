@@ -24,9 +24,9 @@ class Parser:
     def parse(self, query):
         # Main function who use all instances
         cleaned = self.remove_punctuation(query)
-        print(cleaned)
+        print("Cleaned sentence :", cleaned)
         words = self.list_sentence(cleaned)
-        print(words)
+        print("Sentence in a words list :", words)
         output = self.select_words(words)
         return output
 
@@ -71,11 +71,12 @@ class WikiAPI:
         # return grandPy sentence if page_id exists or a fail sentence
         data = self.get_wiki_pageid(words)
         check_gpk = data.get("grandPy_Knowledge", True)
-        check_pageid = data.get("coordinates", True)
-        if check_gpk and check_pageid:
+        check_coordinates = data.get("coordinates", True)
+        check_address = data.get("address", True)
+        if check_gpk and check_coordinates and check_address:
             page_id = data["pageid"]
             text = self.get_wiki_text(words, page_id)
-            print(text)
+            print("Summary returned by WikiApi :", text)
             gp_text = self.get_grandpy_text(text)
             return gp_text
 
@@ -121,16 +122,17 @@ class WikiAPI:
         }
         for word in words:
             data_request = requests.get(WIKI_URL, params=search_payload3)
-            # url = data_request.url
+            url = data_request.url
             data_json = data_request.json()
-            print(data_json)
+
             try:
                 summary = data_json['query']['pages'][str(page_id)]['extract']
                 data = summary
                 break
             except (KeyError, IndexError, Exception):
                 data = {}
-        # print(url)
+
+        print("requested url :", url)
         return data
 
     def get_grandpy_text(self, text):
@@ -151,11 +153,12 @@ class WikiAPI:
 
 class MapsAPI:
     """
-    This class request Google Maps API with the parsed word to return geographical coordinates.
+    This class request Google Maps API with the parsed word to return geographical coordinates
+    and the formatted address.
 
     ex:
     parameter : ["londres"]
-    :return : {'coordinates': {'lat': 51.5073509, 'lng': -0.1277583}}
+    :return : {'coordinates': {'lat': 51.5073509, 'lng': -0.1277583}, 'address': 'London, UK'}
     """
     def get_maps_output(self, words):
         # replace MAPS_API_KEY by your own api key
@@ -165,11 +168,13 @@ class MapsAPI:
             search_request = requests.get(MAPS_URL, params=search_payload)
             search_json = search_request.json()
             coordinates = search_json["results"][0]["geometry"]["location"]
+            address = search_json['results'][0]['formatted_address']
             data = {
                 "coordinates": {
                     "lat": coordinates["lat"],
                     "lng": coordinates["lng"]
-                }
+                },
+                "address": address
             }
         return data
 
@@ -185,13 +190,9 @@ if __name__ == '__main__':
     wiki = WikiAPI()
     maps = MapsAPI()
     for sentence in user_inputs:
-        print(sentence)
+        print("User input :", sentence)
         output = parser.parse(sentence)
-        print(output)
-        print(wiki.wikier(output))
-        try:
-            maps.get_maps_output(output)
-            print(maps.get_maps_output(output))
-        except:
-            print("c'est le triangle des bermudes")
+        print("Parser list output :", output)
+        print("Sentence returned by WikiApi :", wiki.wikier(output))
+        print("Data returned by MapsApi :", maps.get_maps_output(output))
         print("*" * 100)
