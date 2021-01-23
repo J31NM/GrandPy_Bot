@@ -26,7 +26,7 @@ function greetings() {
             "Salut fiston ! Ca faisait longtemps...... De quoi veux tu parler ?",
              "Tiens mais qui voici ? tu es venu rançonner papy ? ",
              "Qui êtes vous ? que me voulez vous ?",
-             "Papy a eu plusieurs vies, il sait tout ! essai de me coller !"
+             "Papy a eu plusieurs vies, il sait tout ! essaie de me coller !"
         ];
         var example = examples[Math.floor(Math.random() * examples.length)];
         return example
@@ -57,19 +57,19 @@ function createTextElement(text, i=0) {
 function onResponse(data) {
     console.log(data);
     var coordinates = data.coordinates
-    var text = data.text
+    var address = data.coordinates.address
     var answer = data.answer
     var error = data.error_message
-    if (error) {
+    var text = data.text
+    if (error || text == null) {
         createTextElement(error);
-        loadingGif.hidden = false;
     } else {
         setTimeout(createTextElement(answer), 3000);
         createTextElement(text.grandPy_knowledge);
-        setTimeout(createTextElement("Et ça se situe ici :"), 3000);
+        createTextElement("Et ça se situe à cette adresse : " + address);
         initMap(coordinates.coordinates.lat, coordinates.coordinates.lng);
-        loadingGif.hidden = true;
     }
+    loadingGif.hidden = true;
 }
 
 function initMap(lat, lng) {
