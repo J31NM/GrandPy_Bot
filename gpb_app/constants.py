@@ -1,4 +1,3 @@
-MAPS_API_KEY = "AIzaSyDi0HHNfdw-59QS4MyMl8oRJQlRS8ID5OE"
 
 SKIP_WORD = [
  "a","abord","absolument","afin","ah","ai","aie","ailleurs","ainsi","ait","allaient","allo",
@@ -57,9 +56,6 @@ SKIP_WORD = [
  "votre","vous","vous-mêmes","vu","vé","vôtre","vôtres","w","x","y","z","zut","à","â","ça","ès",
  "étaient","étais","était","étant","été","être","ô"]
 
-SKIP_PUNCTUATION = '''!()-[]{};:'"\, <>./?@#$%^&*_~'''
+SKIP_PUNCTUATION = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 WIKI_URL = "http://fr.wikipedia.org/w/api.php"
 MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json"
-
-
-
