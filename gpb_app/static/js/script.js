@@ -36,7 +36,6 @@ function createMapElement() {
     var mapID = 'map' + mapcounter;
     if (mapcounter === 0) {
         mapcounter ++;
-        return
     } else {
         $("#chat").append('<div id="' + mapID +'" class="map_test" ></div>');
         mapcounter ++;
@@ -55,19 +54,18 @@ function createTextElement(text, i=0) {
 }
 
 function onResponse(data) {
-    console.log(data);
-    var coordinates = data.coordinates
-    var address = data.coordinates.address
-    var answer = data.answer
-    var error = data.error_message
-    var text = data.text
-    if (error || text == null) {
-        createTextElement(error);
+    console.log(data)
+    var answer = data.answer;
+    var error = data.error_message;
+    var text = data.text;
+
+    if (error || text === false) {
+        setTimeout(createTextElement(error), 3000)
     } else {
         setTimeout(createTextElement(answer), 3000);
-        createTextElement(text.grandPy_knowledge);
-        createTextElement("Et ça se situe à cette adresse : " + address);
-        initMap(coordinates.coordinates.lat, coordinates.coordinates.lng);
+        setTimeout(createTextElement(text.grandPy_knowledge, 3000));
+        createTextElement("Et ça se situe à cette adresse : " + data.coordinates.address);
+        initMap(data.coordinates.coordinates.lat, data.coordinates.coordinates.lng);
     }
     loadingGif.hidden = true;
 }
