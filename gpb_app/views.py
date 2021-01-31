@@ -1,12 +1,17 @@
-from flask import Flask, render_template, request, jsonify
+#coding : UTF-8
+# pylint: disable=C0103
+
+"""
+Flask script
+"""
+
 import random
+from flask import Flask, render_template, request, jsonify
 from gpb_app.api_manager import Parser
 from gpb_app.api_manager import WikiAPI
 from gpb_app.api_manager import MapsAPI
 
 app = Flask(__name__)
-# To get one variable, tape app.config['MY_VARIABLE']
-app.config.from_object('gpb_app.constants')
 parser = Parser()
 wiki = WikiAPI()
 maps = MapsAPI()
@@ -16,13 +21,13 @@ fail = ["Je n'ai pas compris ta question....",
         "Parle plus fort, papy est sourd....",
         "Jamais entendu parler. Parlons d'autre chose....",
         "..."
-    ]
+        ]
 
 # List of random sentences for Grandpy if the request succed
 answer = ["Ah oui ça me parle, savais tu que :",
           "Mon lieu favori. Je sais plein de choses à son sujet, par exemple :",
           "J'y suis allé une fois. J'ai retenu que :"
-    ]
+          ]
 
 
 @app.route("/", methods=["GET"])
@@ -52,10 +57,13 @@ def results():
         gp_wiki = wiki.wikier(parsed_result)
         # Use Maps object to get the place coordinates from Google Maps
         coordinates = maps.get_maps_output(parsed_result)
-        # return data for the front
-        return jsonify(coordinates=coordinates,
-                       text=gp_wiki,
-                       answer=random.choice(answer))
+        if gp_wiki is False:
+            return jsonify(error_message=random.choice(fail))
+        else:
+            # return data for the front
+            return jsonify(coordinates=coordinates,
+                           text=gp_wiki,
+                           answer=random.choice(answer))
 
     except:
         # return error message for the front if the request fails
@@ -64,4 +72,3 @@ def results():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
