@@ -1,10 +1,27 @@
 #coding : UTF-8
+# pylint: disable=R0201
+# pylint: disable=W0703
 
-from gpb_app.constants import SKIP_WORD
-from gpb_app.constants import WIKI_URL, MAPS_URL, MAPS_API_KEY
-import requests
-import string
+"""
+This module is used to request APIs for the GrandPy-Bot application.
+
+_ Parser() converts a sentence to a list of usable words
+_ WikiAPI() returns à random sentence from WikiMedia API, for GrandPy knowledge.
+_ MapsAPI() returns the location formatted address and his coordinates for Google Maps display.
+
+"""
+
+
 import random
+import requests
+from gpb_app.constants import SKIP_WORD, SKIP_PUNCTUATION
+from gpb_app.constants import WIKI_URL, MAPS_URL
+from config import MAPS_API_KEY
+
+##################################################################################################
+# Comment "from config import MAPS_API_KEY
+# Add your own Google Maps API Key line 186
+##################################################################################################
 
 
 class Parser:
@@ -22,26 +39,26 @@ class Parser:
     """
 
     def parse(self, query):
-        # Main function who use all instances
+        """Main function who use all instances"""
         cleaned = self.remove_punctuation(query)
         print("Cleaned sentence :", cleaned)
         words = self.list_sentence(cleaned)
         print("Sentence in a words list :", words)
-        output = self.select_words(words)
-        return output
+        cleaned_list = self.select_words(words)
+        return cleaned_list
 
     def remove_punctuation(self, sentence):
-        # Clean punctuation and lower letters
-        for char in list(string.punctuation):
+        """Clean punctuation and lower letters"""
+        for char in list(SKIP_PUNCTUATION):
             sentence = sentence.replace(char, "").replace("'", " ")
         return sentence.lower()
 
     def list_sentence(self, sentence):
-        # split sentence to words separated by a blank character
+        """split sentence to words separated by a blank character"""
         return sentence.split(" ")
 
     def select_words(self, words):
-        # create a list where the common words are removed
+        """create a list where the common words are removed"""
         output_for_wiki = []
         for word in words:
             if word and word not in SKIP_WORD:
@@ -68,24 +85,27 @@ class WikiAPI:
     """
 
     def wikier(self, words):
-        # return grandPy sentence if page_id exists or a fail sentence
+        """return grandPy sentence if page_id exists or a fail sentence"""
         data = self.get_wiki_pageid(words)
-        check_gpk = data.get("grandPy_Knowledge", True)
-        check_coordinates = data.get("coordinates", True)
-        check_address = data.get("address", True)
-        if check_gpk and check_coordinates and check_address:
+        try:
             page_id = data["pageid"]
             text = self.get_wiki_text(words, page_id)
-            print("Summary returned by WikiApi :", text)
-            gp_text = self.get_grandpy_text(text)
-            return gp_text
+            check_gpk = data.get("grandPy_Knowledge", True)
+            check_coordinates = data.get("coordinates", True)
+            check_address = data.get("address", True)
+            if check_gpk and check_coordinates and check_address:
+                print("Summary returned by WikiApi :", text)
+                gp_text = self.get_grandpy_text(text)
 
-        else:
-            print("je n'ai pas compris")
-            return False
+        except (KeyError, IndexError, Exception):
+            gp_text = False
+
+        return gp_text
+
+
 
     def get_wiki_pageid(self, words):
-        # return the page_id of a selected word if exists, else return an empty dictionnary
+        """return the page_id of a selected word if exists, else return an empty dictionnary"""
         search_payload = {"action": "query",
                           "format": "json",
                           "list": "search",
@@ -107,8 +127,8 @@ class WikiAPI:
         return data
 
     def get_wiki_text(self, words, page_id):
-        # return a short summary from Wiki api if the request succeed,
-        # else return an empty dictionnary
+        """return a short summary from Wiki api if the request succeed,
+        else return an empty dictionnary"""
         search_payload3 = {
             'action': 'query',
             'prop': 'extracts',
@@ -136,8 +156,8 @@ class WikiAPI:
         return data
 
     def get_grandpy_text(self, text):
-        # return a random sentence from the wiki summary
-        # if the sentence is empty or smaller then 20 character it is deleted
+        """return a random sentence from the wiki summary
+        if the sentence is empty or smaller then 20 character it is deleted"""
         sentences = text.split(".")
         for sentence in sentences:
             if sentence == "":
@@ -161,6 +181,7 @@ class MapsAPI:
     :return : {'coordinates': {'lat': 51.5073509, 'lng': -0.1277583}, 'address': 'London, UK'}
     """
     def get_maps_output(self, words):
+        """requests API to get coordinates and address"""
         # replace MAPS_API_KEY by your own api key
         search_payload = {"key": MAPS_API_KEY}
         for word in words:
@@ -181,18 +202,23 @@ class MapsAPI:
 
 if __name__ == '__main__':
 
-    """
-    The code below runs some examples in the console to show how the code results step by step
-    """
-    user_inputs = ["Parle moi de londres", "Quelle est l'adresse du Louvre à Paris ?",
-                   "Je suis sûr que tu_ ne sais pas ou se tr&ouve Ston/ehenge !", "sdjhgss"]
-    parser = Parser()
-    wiki = WikiAPI()
-    maps = MapsAPI()
-    for sentence in user_inputs:
+    # The code below runs some examples in the console to show how the code results step by step
+    USER_INPUTS = [
+        "Parle moi de londres",
+        "Quelle est l'adresse du Louvre à Paris ?",
+        "Je suis sûr que tu_ ne sais pas ou se tr&ouve Ston/ehenge !",
+        "sdjhgss"]
+    PARSER = Parser()
+    WIKI = WikiAPI()
+    MAPS = MapsAPI()
+    for sentence in USER_INPUTS:
         print("User input :", sentence)
-        output = parser.parse(sentence)
+        output = PARSER.parse(sentence)
         print("Parser list output :", output)
-        print("Sentence returned by WikiApi :", wiki.wikier(output))
-        print("Data returned by MapsApi :", maps.get_maps_output(output))
+        print("Sentence returned by WikiApi :", WIKI.wikier(output))
+        try:
+            MAPS.get_maps_output(output)
+            print("Data returned by MapsApi :", MAPS.get_maps_output(output))
+        except:
+            print("C'est le triangle des bermudes")
         print("*" * 100)
