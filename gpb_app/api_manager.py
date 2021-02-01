@@ -16,11 +16,11 @@ import random
 import requests
 from gpb_app.constants import SKIP_WORD, SKIP_PUNCTUATION
 from gpb_app.constants import WIKI_URL, MAPS_URL
-from config import MAPS_API_KEY
+MAPS_API_KEY = "AIzaSyDi0HHNfdw-59QS4MyMl8oRJQlRS8ID5OE"
 
 ##################################################################################################
-# Comment "from config import MAPS_API_KEY
-# Add your own Google Maps API Key line 186
+# Replace os.environ.get('MAPS_API_KEY') by your own Google Maps API key
+# MAPS_API_KEY = os.environ.get('MAPS_API_KEY')
 ##################################################################################################
 
 
