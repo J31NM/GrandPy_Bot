@@ -1,4 +1,3 @@
-# MAPS_API_KEY = "AIzaSyDi0HHNfdw-59QS4MyMl8oRJQlRS8ID5OE"
 
 SKIP_WORD = [
  "a","abord","absolument","afin","ah","ai","aie","ailleurs","ainsi","ait","allaient","allo",
