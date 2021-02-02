@@ -17,12 +17,10 @@ import requests
 from gpb_app.constants import SKIP_WORD, SKIP_PUNCTUATION
 from gpb_app.constants import WIKI_URL, MAPS_URL
 
-
 MAPS_API_KEY = os.environ.get("MAPS_API_KEY")
 
 ##################################################################################################
 # Replace os.environ.get('MAPS_API_KEY') by your own Google Maps API key
-# MAPS_API_KEY = os.environ.get('MAPS_API_KEY')
 ##################################################################################################
 
 
