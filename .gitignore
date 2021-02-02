@@ -1,7 +1,6 @@
-__pycache__
 .cache/
-<<<<<<< HEAD
 config.py
 env/
-=======
->>>>>>> a489291170928e530821fdf5cf559b1b0079b2ea
+.idea
+__pycache__
+

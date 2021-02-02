@@ -69,8 +69,9 @@ header {
   height: 650px;
   border-width: 1px;
   background-color: lavender;
-  /*padding-right: unset;*/
-  /*padding-left: 0px;*/
+  padding-right: 0px;
+  padding-left: 0px;
+  
 }
 
 #papy_text {

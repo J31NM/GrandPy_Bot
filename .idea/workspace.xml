@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc2fb1a6-84be-48ae-b7e7-bdfa225285cd" name="Default Changelist" comment="Add tests folder">
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/GrandPy-Bot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../2_Communauté_OC/communauté/.idea/communauté.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../3_Projet_MacGyver/.idea/3_Projet_MacGyver.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../3_Projet_MacGyver/Cours/Perfectionnez-vous en Py/.idea/Perfectionnez-vous en Py.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../5_OpenFoodFacts/.idea/5_OpenFoodFacts.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../5_OpenFoodFacts/Cours/exo_tkinter/.idea/exo_tkinter.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../6_Projet_pizzeria_2/.idea/6_Projet_pizzeria_2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Cours/.idea/Cours.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Cours/Python/flask/.idea/flask.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Cours/Python/le_monde_est_petit-master/.idea/le_monde_est_petit-master.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../raccourcis/Dk_Labyrinthe/.idea/Dk_Labyrinthe.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../codemy_flask/.idea/codemy_flask.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../gpb_app/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../gpb_app/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../gpb_app/templates/result.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../gpb_app/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../run.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_api_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_api_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,8 +182,8 @@
       <list>
         <item itemvalue="Flask server.Flask (gpb_app/views.py)" />
         <item itemvalue="Python.api_manager" />
-        <item itemvalue="Python.config" />
         <item itemvalue="Python tests.Unittests in test_api_manager.py" />
+        <item itemvalue="Python.config" />
         <item itemvalue="Python tests.pytest for test_api_manager.TestWikiApi.test_get_wiki_text" />
       </list>
     </recent_temporary>
@@ -309,7 +292,10 @@
       <workItem from="1611912164269" duration="15158000" />
       <workItem from="1612021974078" duration="15122000" />
       <workItem from="1612114241345" duration="2879000" />
-      <workItem from="1612118055471" duration="946000" />
+      <workItem from="1612118055471" duration="2648000" />
+      <workItem from="1612133031603" duration="5204000" />
+      <workItem from="1612198270539" duration="4538000" />
+      <workItem from="1612294071178" duration="1390000" />
     </task>
     <servers />
   </component>
@@ -338,6 +324,10 @@
     </state>
     <state x="2012" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612027765718" />
     <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604314424546" />
+    <state x="2451" y="288" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612136206093">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2451" y="288" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612136206093" />
     <state x="-1370" y="97" key="CommitChangelistDialog2" timestamp="1611318135318">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -353,38 +343,38 @@
     <state x="-1120" y="369" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611509612823" />
     <state x="640" y="292" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1611826820700" />
     <state x="2720" y="369" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612044655879" />
-    <state width="650" height="652" key="GridCell.Tab.0.bottom" timestamp="1612118495905">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="730" height="585" key="GridCell.Tab.0.bottom" timestamp="1612294376934">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611599523207" />
     <state width="598" height="673" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1610473408307" />
-    <state width="650" height="652" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612118495905" />
+    <state width="730" height="600" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612202982714" />
     <state width="626" height="673" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610045044690" />
-    <state width="836" height="889" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611912422051" />
-    <state width="650" height="652" key="GridCell.Tab.0.center" timestamp="1612118495905">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="730" height="585" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612294376934" />
+    <state width="730" height="585" key="GridCell.Tab.0.center" timestamp="1612294376932">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="163" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611599523207" />
     <state width="598" height="673" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1610473408307" />
-    <state width="650" height="652" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612118495905" />
+    <state width="730" height="600" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612202982714" />
     <state width="626" height="673" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610045044690" />
-    <state width="836" height="889" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611912422051" />
-    <state width="650" height="652" key="GridCell.Tab.0.left" timestamp="1612118495905">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="730" height="585" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612294376932" />
+    <state width="730" height="585" key="GridCell.Tab.0.left" timestamp="1612294376932">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="163" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611599523207" />
     <state width="598" height="673" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1610473408307" />
-    <state width="650" height="652" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612118495905" />
+    <state width="730" height="600" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612202982714" />
     <state width="626" height="673" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610045044690" />
-    <state width="836" height="889" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611912422035" />
-    <state width="650" height="652" key="GridCell.Tab.0.right" timestamp="1612118495905">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="730" height="585" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612294376932" />
+    <state width="730" height="585" key="GridCell.Tab.0.right" timestamp="1612294376932">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="163" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611599523207" />
     <state width="598" height="673" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1610473408307" />
-    <state width="650" height="652" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612118495905" />
+    <state width="730" height="600" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612202982714" />
     <state width="626" height="673" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610045044690" />
-    <state width="836" height="889" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611912422051" />
+    <state width="730" height="585" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612294376932" />
     <state width="1877" height="72" key="GridCell.Tab.1.bottom" timestamp="1611957203736">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -456,16 +446,16 @@
     <SUITE FILE_PATH="coverage/GrandPy_Bot$pytest_for_test_api_manager_TestParser.coverage" NAME="pytest for test_api_manager.TestParser Coverage Results" MODIFIED="1611941787027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$views.coverage" NAME="views Coverage Results" MODIFIED="1611569756148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gpb_app" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$x.coverage" NAME="x Coverage Results" MODIFIED="1610632239886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gpb_app" />
-    <SUITE FILE_PATH="coverage/GrandPy_Bot$Flask__gpb_app_views_py_.coverage" NAME="Flask (gpb_app/views.py) Coverage Results" MODIFIED="1612118495590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/GrandPy_Bot$Flask__gpb_app_views_py_.coverage" NAME="Flask (gpb_app/views.py) Coverage Results" MODIFIED="1612294376904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$pytest_for_test_api_manager_TestWikiApi.coverage" NAME="pytest for test_api_manager.TestWikiApi Coverage Results" MODIFIED="1611930265310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$config.coverage" NAME="config Coverage Results" MODIFIED="1612116422959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$run.coverage" NAME="run Coverage Results" MODIFIED="1611313913196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$Unittests_for_test_api_manager_TestMapsAPI.coverage" NAME="Unittests for test_api_manager.TestMapsAPI Coverage Results" MODIFIED="1610894457507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gpb_app/tests" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1611912422035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/GrandPy_Bot$api_manager.coverage" NAME="api_manager Coverage Results" MODIFIED="1612118317111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gpb_app" />
+    <SUITE FILE_PATH="coverage/GrandPy_Bot$api_manager.coverage" NAME="api_manager Coverage Results" MODIFIED="1612294166924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gpb_app" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$Unittests_for_test_api_manager_TestParser.coverage" NAME="Unittests for test_api_manager.TestParser Coverage Results" MODIFIED="1611309384784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$GrandPy_Bot.coverage" NAME="GrandPy-Bot Coverage Results" MODIFIED="1612031829663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/GrandPy_Bot$Unittests_in_test_api_manager_py.coverage" NAME="Unittests in test_api_manager.py Coverage Results" MODIFIED="1612033328543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/GrandPy_Bot$Unittests_in_test_api_manager_py.coverage" NAME="Unittests in test_api_manager.py Coverage Results" MODIFIED="1612201612324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$Unittests_for_test_api_manager_TestParser_test_remove_punctuation.coverage" NAME="Unittests for test_api_manager.TestParser.test_remove_punctuation Coverage Results" MODIFIED="1605535344611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gpb_app/tests" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$Unittests_for_test_api_manager_TestWikiApi.coverage" NAME="Unittests for test_api_manager.TestWikiApi Coverage Results" MODIFIED="1611507656980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/GrandPy_Bot$pytest_for_test_api_manager_TestWikiApi_test_get_wiki_text.coverage" NAME="pytest for test_api_manager.TestWikiApi.test_get_wiki_text Coverage Results" MODIFIED="1612030932589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />

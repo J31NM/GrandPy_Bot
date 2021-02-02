@@ -1,3 +1,4 @@
+# MAPS_API_KEY = "AIzaSyDi0HHNfdw-59QS4MyMl8oRJQlRS8ID5OE"
 
 SKIP_WORD = [
  "a","abord","absolument","afin","ah","ai","aie","ailleurs","ainsi","ait","allaient","allo",
@@ -59,3 +60,4 @@ SKIP_WORD = [
 SKIP_PUNCTUATION = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 WIKI_URL = "http://fr.wikipedia.org/w/api.php"
 MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json"
+

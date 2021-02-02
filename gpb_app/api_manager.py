@@ -11,12 +11,14 @@ _ MapsAPI() returns the location formatted address and his coordinates for Googl
 
 """
 
-
+import os
 import random
 import requests
 from gpb_app.constants import SKIP_WORD, SKIP_PUNCTUATION
 from gpb_app.constants import WIKI_URL, MAPS_URL
-MAPS_API_KEY = "AIzaSyDi0HHNfdw-59QS4MyMl8oRJQlRS8ID5OE"
+
+
+MAPS_API_KEY = os.environ.get("MAPS_API_KEY")
 
 ##################################################################################################
 # Replace os.environ.get('MAPS_API_KEY') by your own Google Maps API key
