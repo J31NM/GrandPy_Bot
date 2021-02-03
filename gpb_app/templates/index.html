@@ -64,8 +64,9 @@
          <div class="card-body">
            <div id="question">
                <h5 class="card-title">Pose ta question :</h5>
-               <input value="" type="text" name="question" id="query" formaction="/submit" formmethod="POST"
-                style="min-width: 100%"/>
+               <form method="post" action="/submit">
+                   <input value="" type="text" name="question" id="query" style="min-width: 100%"/>
+               </form>
            <button id="search">Search</button>
            </div>
            <p class="card-text"></p>
