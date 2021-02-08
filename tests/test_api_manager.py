@@ -6,6 +6,7 @@ Test file for main script api_manager.py
 """
 
 import unittest
+import unittest.mock as mock
 from gpb_app.api_manager import Parser, WikiAPI, MapsAPI
 
 
@@ -46,10 +47,10 @@ class TestWikiApi(unittest.TestCase):
         self.assertEqual(self.wikiApi.get_wiki_pageid(words3), {})
 
     def test_get_wiki_text_return_data(self):
-        self.assertTrue(type(self.wikiApi.get_wiki_text("londres", 4924)) is str)
+        self.assertIsInstance((self.wikiApi.get_wiki_text("londres", 4924)), str)
 
     def test_get_wiki_text_return_nothing(self):
-        self.assertTrue(type(self.wikiApi.get_wiki_text("egsrger", None)) is dict)
+        self.assertIsInstance((self.wikiApi.get_wiki_text("egsrger", None)), dict)
 
     def test_get_grandpy_text(self):
         sentences = "j'aime les pates. j'irai bien traverser les plaines de Mongolie. Saucisse." \
@@ -64,11 +65,21 @@ class TestMapsAPI(unittest.TestCase):
     def setUp(self):
         self.maps = MapsAPI()
 
-    def test_get_maps_output(self):
+    @mock.patch('gpb_app.api_manager.requests')
+    def test_get_maps_output(self, mocked_requests):
         words = ["paris"]
-        self.assertEqual(self.maps.get_maps_output(words)["coordinates"], {'lat': 48.856614,
-                                                                           'lng': 2.3522219})
-        self.assertEqual(self.maps.get_maps_output(words)["address"], 'Paris, France')
+        expected_address = 'Paris, France'
+        expected_coordinates = {'lat': 48.856614, 'lng': 2.3522219}
+        fake_api_data = {'results': [{'geometry': {'location': expected_coordinates},
+                                      'formatted_address': expected_address}]}
+        mocked_response = mock.Mock()
+        mocked_response.json.return_value = fake_api_data
+        mocked_requests.get.return_value = mocked_response
+
+        output = self.maps.get_maps_output(words)
+
+        self.assertDictEqual(output["coordinates"], expected_coordinates)
+        self.assertEqual(output["address"], expected_address)
 
 
 if __name__ == '__main__':
