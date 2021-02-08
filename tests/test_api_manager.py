@@ -35,22 +35,52 @@ class TestWikiApi(unittest.TestCase):
 
     def setUp(self):
         self.wikiApi = WikiAPI()
+        self.mocked_response = mock.Mock()
 
-    def test_get_wiki_pageid(self):
-        words = ["encrier", "paris", "londres"]
-        words2 = [""]
-        words3 = ["sdsdsdsd"]
-        words4 = ["londres", "sdsdsdsd"]
-        self.assertEqual(self.wikiApi.get_wiki_pageid(words)["pageid"], 4924)
-        self.assertEqual(self.wikiApi.get_wiki_pageid(words4)["pageid"], 4924)
-        self.assertEqual(self.wikiApi.get_wiki_pageid(words2), {})
-        self.assertEqual(self.wikiApi.get_wiki_pageid(words3), {})
+    @mock.patch('gpb_app.api_manager.requests')
+    def test_get_wiki_pageid_ok(self, mocked_requests):
+        words = ["encrier", "paris", "londres", "sdsdsdsd"]
+        expected_page_id = 4924
+        fake_api_data = {'query': {'searchinfo': {'totalhits': 117660}, 'search':
+            [{'ns': 0, 'title': 'Londres', 'pageid': expected_page_id}]}}
+        self.mocked_response.json.return_value = fake_api_data
+        mocked_requests.get.return_value = self.mocked_response
+        answer1 = self.wikiApi.get_wiki_pageid(words)
 
-    def test_get_wiki_text_return_data(self):
-        self.assertIsInstance((self.wikiApi.get_wiki_text("londres", 4924)), str)
+        self.assertEqual(answer1["pageid"], expected_page_id)
 
-    def test_get_wiki_text_return_nothing(self):
-        self.assertIsInstance((self.wikiApi.get_wiki_text("egsrger", None)), dict)
+    @mock.patch('gpb_app.api_manager.requests')
+    def test_get_wiki_pageid_fail(self, mocked_requests):
+        words = ["", "sdsdsdsd"]
+        expected_empty_answer = {}
+        fake_api_data = {'batchcomplete': '',
+                         'query': {'searchinfo': {'totalhits': 0}, 'search': []}}
+        self.mocked_response.json.return_value = fake_api_data
+        mocked_requests.get.return_value = self.mocked_response
+        answer2 = self.wikiApi.get_wiki_pageid(words)
+
+        self.assertEqual(answer2, expected_empty_answer)
+
+    @mock.patch('gpb_app.api_manager.requests')
+    def test_get_wiki_text(self, mocked_requests):
+        title = ["londres", "egsrger"]
+        page_id = [4924, None]
+        fake_api_data = {'batchcomplete': '',
+                         'continue': {'gsroffset': 1, 'continue': 'gsroffset||'},
+                         'query': {'pages': {'4924': {'pageid': 4924, 'ns': 0,
+                         'title': 'Londres', 'index': 1,
+                         'extract': "Hello lisa granhed Londres [lɔ̃dʁ]  "
+                                    "(en anglais : London [ˈlʌndən] ) est la capitale et "
+                                    "la plus grande ville d'Angleterre et du Royaume-Uni,."}}}}
+        self.mocked_response.json.return_value = fake_api_data
+        mocked_requests.get.return_value = self.mocked_response
+        text_ok = self.wikiApi.get_wiki_text(title[0], page_id[0])
+        text_fail = self.wikiApi.get_wiki_text(title[1], page_id[1])
+
+        self.assertIsInstance(text_ok, str)
+        self.assertIsInstance(text_fail, dict)
+
+
 
     def test_get_grandpy_text(self):
         sentences = "j'aime les pates. j'irai bien traverser les plaines de Mongolie. Saucisse." \

@@ -101,8 +101,6 @@ class WikiAPI:
 
         return gp_text
 
-
-
     def get_wiki_pageid(self, words):
         """return the page_id of a selected word if exists, else return an empty dictionnary"""
         search_payload = {"action": "query",
@@ -123,6 +121,7 @@ class WikiAPI:
                 break
             except (KeyError, IndexError, Exception):
                 data = {}
+
         return data
 
     def get_wiki_text(self, words, page_id):
@@ -196,6 +195,7 @@ class MapsAPI:
                 },
                 "address": address
             }
+
         return data
 
 
