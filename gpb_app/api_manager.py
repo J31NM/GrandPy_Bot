@@ -138,17 +138,16 @@ class WikiAPI:
             'gsrlimit': 1,
             'gsrsearch': words
         }
-        for word in words:
-            data_request = requests.get(WIKI_URL, params=search_payload3)
-            url = data_request.url
-            data_json = data_request.json()
+        data_request = requests.get(WIKI_URL, params=search_payload3)
+        url = data_request.url
+        data_json = data_request.json()
 
-            try:
-                summary = data_json['query']['pages'][str(page_id)]['extract']
-                data = summary
-                break
-            except (KeyError, IndexError, Exception):
-                data = {}
+        try:
+            summary = data_json['query']['pages'][str(page_id)]['extract']
+            data = summary
+
+        except (KeyError, IndexError, Exception):
+            data = {}
 
         print("requested url :", url)
         return data
@@ -181,20 +180,18 @@ class MapsAPI:
     def get_maps_output(self, words):
         """requests API to get coordinates and address"""
         # replace MAPS_API_KEY by your own api key
-        search_payload = {"key": MAPS_API_KEY}
-        for word in words:
-            search_payload["address"] = word
-            search_request = requests.get(MAPS_URL, params=search_payload)
-            search_json = search_request.json()
-            coordinates = search_json["results"][0]["geometry"]["location"]
-            address = search_json['results'][0]['formatted_address']
-            data = {
-                "coordinates": {
-                    "lat": coordinates["lat"],
-                    "lng": coordinates["lng"]
-                },
-                "address": address
-            }
+        search_payload = {"key": MAPS_API_KEY, "address": "|".join(words)}
+        search_request = requests.get(MAPS_URL, params=search_payload)
+        search_json = search_request.json()
+        coordinates = search_json["results"][0]["geometry"]["location"]
+        address = search_json['results'][0]['formatted_address']
+        data = {
+            "coordinates": {
+                "lat": coordinates["lat"],
+                "lng": coordinates["lng"]
+            },
+            "address": address
+        }
 
         return data
 

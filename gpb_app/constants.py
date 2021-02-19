@@ -47,7 +47,7 @@ SKIP_WORD = [
  "sienne","siennes","siens","sinon","six","sixième","soi","soi-même","soit","soixante","son","sont",
  "sous","souvent","specifique","specifiques","speculatif","stop","strictement","subtiles",
  "suffisant","suffisante","suffit","suis","suit","suivant","suivante","suivantes","suivants",
- "suivre","superpose","sur","surtout","t","ta","tac","tant","tardive","te","tel","telle",
+ "suivre","superpose","sur", "sûr", "surtout","t","ta","tac","tant","tardive","te","tel","telle",
  "tellement","telles","tels","tenant","tend","tenir","tente","tes","tic","tien","tienne","tiennes",
  "tiens","toc","toi","toi-même","ton","touchant","toujours","tous","tout","toute","toutefois",
  "toutes","treize","trente","tres","trois","troisième","troisièmement","trop","très","tsoin",
